@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Ebay Item Price History",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Adds a button to eBay item pages to display the purchase history, localized for various regions.",
   
   "icons": {
