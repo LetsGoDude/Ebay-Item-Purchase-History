@@ -17,6 +17,10 @@
     "ebay.com.br": "Histórico de preços",
     "ebay.co.jp": "価格履歴",
     "ebay.ru": "История цен",
+	"ebay.at": "Preisverlauf",
+    "ebay.ch": "Preisverlauf",
+    "ebay.be": "Historique des prix",
+    "ebay.ie": "Price history",
     // More domains can be added
   };
 
@@ -50,7 +54,7 @@
     return null;
   }
 
-  // Function to add the "Price history" button
+// Function to add the "Price history" button
   const addPriceHistoryButton = () => {
     const buybox = getBuyboxElement();
     if (!buybox) {
@@ -100,6 +104,7 @@
     historyListItem.appendChild(historyDiv);
     buybox.appendChild(historyListItem);
   };
+
 
   // Set up a MutationObserver to support dynamically loaded pages
   const observeDOM = () => {

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Ebay Item Price History",
-  "version": "1.4.2",
+  "version": "1.5",
   "description": "Adds a button to eBay item pages to display the purchase history, localized for various regions.",
   
   "icons": {
@@ -36,48 +36,15 @@
         "*://*.ebay.co.jp/*",
         "*://*.ebay.ru/*",
         "*://*.ebay.co.kr/*"
-        // Add any additional domains here
       ],
       "js": ["content.js"]
     }
   ],
 
-  "permissions": [
-    "activeTab"
-  ],
-
-  "host_permissions": [
-    "*://*.ebay.com/*",
-    "*://*.ebay.de/*",
-    "*://*.ebay.co.uk/*",
-    "*://*.ebay.com.au/*",
-    "*://*.ebay.ca/*",
-    "*://*.ebay.fr/*",
-    "*://*.ebay.it/*",
-    "*://*.ebay.es/*",
-    "*://*.ebay.ie/*",
-    "*://*.ebay.nl/*",
-    "*://*.ebay.ch/*",
-    "*://*.ebay.at/*",
-    "*://*.ebay.be/*",
-    "*://*.ebay.com.hk/*",
-    "*://*.ebay.com.sg/*",
-    "*://*.ebay.in/*",
-    "*://*.ebay.ph/*",
-    "*://*.ebay.my/*",
-    "*://*.ebay.com.br/*",
-    "*://*.ebay.pl/*",
-    "*://*.ebay.com.mx/*",
-    "*://*.ebay.co.th/*",
-    "*://*.ebay.co.jp/*",
-    "*://*.ebay.ru/*",
-    "*://*.ebay.co.kr/*"
-    // Add any additional domains here
-  ],
-
   "browser_specific_settings": {
     "gecko": {
-      "id": "{c8d28c0b-b910-4314-8e33-540a85e07352}"
+      "id": "{c8d28c0b-b910-4314-8e33-540a85e07352}",
+	  "data_collection_permissions": {"required": ["none"]}
     }
   }
 }
