@@ -16,25 +16,27 @@
     "ebay.pl": "Historia cen",
     "ebay.com.br": "Histórico de preços",
     "ebay.co.jp": "価格履歴",
-    "ebay.ru": "История цен",
-	"ebay.at": "Preisverlauf",
+    "ebay.ru": "История cen",
+    "ebay.at": "Preisverlauf",
     "ebay.ch": "Preisverlauf",
     "ebay.be": "Historique des prix",
     "ebay.ie": "Price history",
     // More domains can be added
   };
 
-  // Function to get localized button text
+  // Function to get localized button text safely matching domain suffixes
   const getLocalizedText = (hostname) => {
-    const mainDomain = hostname.split('.').slice(-2).join('.');
-    return translations[mainDomain] || "Price history";
+    const match = Object.keys(translations).find(domain => hostname.endsWith(domain));
+    return match ? translations[match] : "Price history";
   };
 
   // Function to find the buybox element
   function getBuyboxElement({ throwOnFail = false } = {}) {
     const selectors = [
-      'ul[data-testid="x-buybox-cta"]', // preferred selector, more stable
-      'ul.x-buybox-cta.mar-t-20'         // fallback for older versions
+      '[data-testid="x-buybox-cta"] ul', // targets the ul inside the modern buybox div
+      '.x-buybox-cta ul',                 // fallback for class wrapper
+      'ul[data-testid="x-buybox-cta"]',   // legacy fallback
+      'ul.x-buybox-cta.mar-t-20'          // legacy fallback
     ];
 
     for (const selector of selectors) {
@@ -54,11 +56,10 @@
     return null;
   }
 
-// Function to add the "Price history" button
+  // Function to add the "Price history" button
   const addPriceHistoryButton = () => {
     const buybox = getBuyboxElement();
     if (!buybox) {
-      console.log('No buybox found, skipping actions.');
       return;
     }
 
